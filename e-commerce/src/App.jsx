@@ -1,4 +1,5 @@
-
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { useState } from "react"
 import './App.css'
 //Components 
 import Register from './components/Register'
@@ -6,15 +7,22 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Logout from './components/Logout'
 
-function App() {
 
+function App() {
+ const [token, setToken] = useState(null);
+ 
+ console.log("This is token from app", token);
 
   return (
     <div>
+      <BrowserRouter>
       <Navbar/>
-      <Register/>
-      <Login/>
-      <Logout/>
+      <Routes>
+      <Route path="/register" element ={<Register setToken = {setToken}/>}/>
+      <Route path="" element ={<Login/>}/>
+      <Route path="" element ={<Logout/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   )
 }
