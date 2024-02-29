@@ -2,7 +2,7 @@ import { useState } from "react";
 //api
 import { useRegisterMutation } from "../Redux/api";
 
-function Register() {
+function Register(props) {
   const [nameForm, setNameForm] = useState({
     firstname: "",
     lastname: "",
@@ -36,8 +36,11 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // form values are {nameForm, geoLocationForm, userForm, addressForm}
+    // register(nameForm, geoLocationForm, userForm, addressForm)
     // console.log("this is handle submit", data);
-    const {data, error } = await register({nameForm, addressForm, geoLocationForm, userForm});
+    const {data, error } = await register(nameForm, geoLocationForm, userForm, addressForm);
+    // const {data, error } = await register(form);
 
     console.log("this is data", data)
     if (error) {
@@ -45,6 +48,7 @@ function Register() {
         setError(error.data.message);
         console.log(`error ${JSON.stringify(error.data.message)}`);
       } else {
+        console.log(props)
         //data.token --> has token value
         props.setToken(data.token);
         console.log(`data ${JSON.stringify(data.token)}`);
@@ -70,7 +74,7 @@ function Register() {
       <h2>Register Form</h2>
       {/* error message */}
         {errorMsg ? <p>{errorMsg}</p> : <span />}
-      <form>
+      <form onClick={handleSubmit}>
         <label htmlFor="email">Email: </label>
         <input
           type="text"
@@ -180,7 +184,7 @@ function Register() {
           placeholder="Phone Number"
         />
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button >Submit</button>
       </form>
     </div>
   );
