@@ -1,0 +1,9 @@
+
+.img{
+    width: 300px;
+    height: 250px;
+}
+.productsInfo{
+    display: block;
+    background-color: rgb(73, 73, 73);
+}

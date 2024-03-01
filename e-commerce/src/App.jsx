@@ -6,6 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Home from "./components/Home"
+import Products from "./components/Products"
 
 //Components with auth
 import Logout from './components/Logout'
@@ -25,6 +26,7 @@ function App() {
       <Route path = "/" element = {<Home/>}/>
       <Route path="/register" element ={<Register/>}/>
       <Route path="/login" element ={<Login setToken={setToken}/>}/>
+      <Route path="/products" element ={<Products/>}/>
       <Route path="" element ={<Logout/>}/>
       <Route path="/account" element ={<Account/>}/>
       </Routes>

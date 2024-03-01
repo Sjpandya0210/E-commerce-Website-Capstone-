@@ -23,10 +23,15 @@ export const apiSlice = createApi({
       url: "/auth/login",
       method: "POST",
       body
-    })
-  })
+    }),
+  }),
+  productlist: builder.query({
+    query: () => ({
+      url: "/products",
+    }),
+  }),
   }),
 });
 
 // Export the auto-generated hook for the `getPosts` query endpoint
-export const { useRegisterMutation, useLoginMutation} = apiSlice;
+export const { useRegisterMutation, useLoginMutation, useProductlistQuery} = apiSlice;
