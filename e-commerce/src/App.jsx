@@ -1,12 +1,15 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import { useState } from "react"
 import './App.css'
-//Components 
+//Components without auth
 import Register from './components/Register'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
-import Logout from './components/Logout'
 import Home from "./components/Home"
+
+//Components with auth
+import Logout from './components/Logout'
+import Account from "./components/Account"
 
 
 function App() {
@@ -20,9 +23,10 @@ function App() {
       <Navbar token = {token} setToken = {setToken}/>
       <Routes>
       <Route path = "/" element = {<Home/>}/>
-      <Route path="/register" element ={<Register setToken = {setToken}/>}/>
-      <Route path="" element ={<Login/>}/>
+      <Route path="/register" element ={<Register/>}/>
+      <Route path="/login" element ={<Login setToken={setToken}/>}/>
       <Route path="" element ={<Logout/>}/>
+      <Route path="/account" element ={<Account/>}/>
       </Routes>
       </BrowserRouter>
     </div>

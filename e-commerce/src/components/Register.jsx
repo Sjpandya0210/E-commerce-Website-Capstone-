@@ -2,7 +2,7 @@ import { useState } from "react";
 //api
 import { useRegisterMutation } from "../Redux/api";
 
-function Register(props) {
+function Register() {
   const [nameForm, setNameForm] = useState({
     firstname: "",
     lastname: "",
@@ -39,20 +39,25 @@ function Register(props) {
     // form values are {nameForm, geoLocationForm, userForm, addressForm}
     // register(nameForm, geoLocationForm, userForm, addressForm)
     // console.log("this is handle submit", data);
-    const {data, error } = await register(nameForm, geoLocationForm, userForm, addressForm);
-    // const {data, error } = await register(form);
+    setForm({
+    name: { ...nameForm },
+    address: { geolocation: { ...geoLocationForm }, ...addressForm },
+    ...userForm,
+    })
+
+    const {data, error } = await register(form);
 
     console.log("this is data", data)
     if (error) {
         //error.data.message --> error message
         setError(error.data.message);
         console.log(`error ${JSON.stringify(error.data.message)}`);
-      } else {
-        console.log(props)
-        //data.token --> has token value
-        props.setToken(data.token);
-        console.log(`data ${JSON.stringify(data.token)}`);
-      }
+     } //else {
+    //     // console.log(props)
+    //     //data.token --> has token value
+    //     // props.setToken(data.token);
+    //     console.log(`data ${JSON.stringify(data)}`);
+    //   }
 
   };
 
