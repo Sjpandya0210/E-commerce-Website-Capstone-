@@ -7,10 +7,12 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Home from "./components/Home"
 import Products from "./components/Products"
+import ProductDetails from "./components/ProductDetails"
 
 //Components with auth
 import Logout from './components/Logout'
 import Account from "./components/Account"
+import Cart from "./components/Cart"
 
 
 function App() {
@@ -28,7 +30,9 @@ function App() {
       <Route path="/login" element ={<Login setToken={setToken}/>}/>
       <Route path="/products" element ={<Products/>}/>
       <Route path="" element ={<Logout/>}/>
+      <Route path="/productdetails/:id" element ={<ProductDetails/>}/>
       <Route path="/account" element ={<Account/>}/>
+      <Route path="/cart" element ={<Cart/>}/>
       </Routes>
       </BrowserRouter>
     </div>

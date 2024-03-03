@@ -38,9 +38,9 @@ function Products () {
                         <h2>{product.title}</h2>
                         <img className= "img" src={product.image}/>
                         <p>Price: {product.price}</p>
-                        <p>Category: {product.category} </p>
-                        <p>{product.description}</p>
                         <p>Rate: {product.rating.rate} Count: {product.rating.count}</p>
+                        <p>Category: {product.category} </p>
+                        {/* <p>{product.description}</p> */}
                         {/* add link to single product */}
                         <Link to={`/productdetails/${product.id}`}>See Details</Link>
                     </div>
