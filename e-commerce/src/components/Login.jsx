@@ -61,6 +61,7 @@ function Login(props) {
             type="text"
             placeholder="Username"
             name="username"
+            autoComplete="on"
             value={userInfo.username}
             onChange={onUserInput}
           />
@@ -70,6 +71,7 @@ function Login(props) {
           type="password"
           placeholder="password"
           name="password"
+          autoComplete="on"
           value={userInfo.password}
           onChange={onUserInput}
         />

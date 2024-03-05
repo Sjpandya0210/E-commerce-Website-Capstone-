@@ -42,29 +42,24 @@ function Account ({token, userId}) {
 
     return (
         <div>
-            <h2>This is your Account</h2>
-            <ul>
-            <li>Username: {data.username}</li>
-            {data.email? <li>Email: {data.email}</li> : ""}
-            <li>Phone Number: {data.phone}</li>
-            {/* {data.user.name? <li>Name: {data.name.firstname} {data.name.lastname}</li>: ""} */}
-            { data.name.firstname ? (
-          <li>First Name: {data.name.firstname} </li>
-        ) : (
-          ""
-        )}
+        <h2>This is your Account</h2>
+        <ul>
+        <li>Username: {data.username}</li>
+        {data.email? <li>Email: {data.email}</li> : ""}
+        <li>Phone Number: {data.phone}</li>
+        { data.name.firstname ? <li>First Name: {data.name.firstname} </li>: ""}
         { data.name.lastname ? <li>Last Name: {data.name.lastname} </li> : ""}
-            {/* <li>Address: {data.address.number} {data.address.street}{data.address.city} {data.address.zipcode}</li>
-            <li>Geolocation:{data.address.geolocation.lat} {data.address.geolocation.long}</li> */}
-            </ul>
+        { data.address.number ? <li>Address: {data.address.number} </li>: ""} 
+        {data.address.street ? <li>Street: {data.address.street}</li>: ""}
+        {data.address.city ?<li>City: {data.address.city}</li>: ""}
+        {data.address.zipcode ? <li>Zipcode: {data.address.zipcode}</li>: ""}
+        {data.address.geolocation.lat ? <li>Geolocation: Latitude: {data.address.geolocation.lat}</li> :""}
+        {data.address.geolocation.long ? <li>Longitude: {data.address.geolocation.long}</li>: ""}
+        </ul>
         </div>
     )
 }
 export default Account;
-
-
-
-
 
 
 //get all users

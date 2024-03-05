@@ -55,11 +55,25 @@ account: builder.query ({
     headers: {
       authorization:`Bearer ${token}`
     }
-  })
-})
+  }),
+}),
+cartByUser: builder.query ({
+  query: ({token, id}) => ({
+    url:`/carts/user/${id}`,
+    headers:{
+      authorization:`Bearer ${token}`
+    }
+  }),
+}),
 })
 })
 
 // Export the auto-generated hook for the `getPosts` query endpoint
-export const { useRegisterMutation, useLoginMutation, useProductlistQuery, useProductDetailsQuery, useAccountQuery, useCartQuery,
-useGetAllUsersQuery } = apiSlice;
+export const { useRegisterMutation, 
+  useLoginMutation, 
+  useProductlistQuery, 
+  useProductDetailsQuery, 
+  useAccountQuery, 
+  useCartQuery,
+  useGetAllUsersQuery,
+  useCartByUserQuery } = apiSlice;
