@@ -17,22 +17,24 @@ import Cart from "./components/Cart"
 
 function App() {
  const [token, setToken] = useState(null);
+ const [userId, setUserId] = useState(null);
  
  console.log("This is token from app", token);
 
   return (
     <div>
       <BrowserRouter>
-      <Navbar token = {token} setToken = {setToken}/>
+      <Navbar token = {token} setToken = {setToken} userId = {userId} setUserId = {setUserId}/>
       <Routes>
       <Route path = "/" element = {<Home/>}/>
       <Route path="/register" element ={<Register/>}/>
-      <Route path="/login" element ={<Login setToken={setToken}/>}/>
       <Route path="/products" element ={<Products/>}/>
+      <Route path="/login" element ={<Login setToken={setToken} setUserId={setUserId}/>}/>
       <Route path="" element ={<Logout/>}/>
       <Route path="/productdetails/:id" element ={<ProductDetails/>}/>
-      <Route path="/account" element ={<Account/>}/>
-      <Route path="/cart" element ={<Cart/>}/>
+      {/* <Route path="/account" element ={<Account token={token}/>}/> */}
+      <Route path="/account/:id" element ={<Account token={token} userId={userId}/>}/>
+      <Route path="/cart" element ={<Cart token = {token}/>}/>
       </Routes>
       </BrowserRouter>
     </div>

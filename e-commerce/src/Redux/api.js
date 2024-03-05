@@ -33,10 +33,33 @@ export const apiSlice = createApi({
   productDetails: builder.query({
     query:(id) => ({
       url: `/products/${id}`,
-    })
-  })
+    }),
   }),
-});
+  cart: builder.query({
+    query:(token) => ({
+      url: `/cart`,
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+  }),
+}),
+getAllUsers: builder.query ({
+  query: () => ({
+     url:"/users",
+  }),
+  }),
+account: builder.query ({
+  query: ({token, id}) => ({
+    // url:"/users",
+    url:`/users/${id}`,
+    headers: {
+      authorization:`Bearer ${token}`
+    }
+  })
+})
+})
+})
 
 // Export the auto-generated hook for the `getPosts` query endpoint
-export const { useRegisterMutation, useLoginMutation, useProductlistQuery, useProductDetailsQuery} = apiSlice;
+export const { useRegisterMutation, useLoginMutation, useProductlistQuery, useProductDetailsQuery, useAccountQuery, useCartQuery,
+useGetAllUsersQuery } = apiSlice;

@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "../Style/Navbar.css"
 function Navbar (props) {
     const navigate = useNavigate();
-   
+    const id = props.id;
     const logoutUser = () => {
         props.setToken(null);
         navigate("/");
@@ -14,9 +14,10 @@ function Navbar (props) {
         return (
           <nav className="token">
             <NavLink to="/">Home</NavLink> 
-            <NavLink to="/account">Account</NavLink> 
+            <NavLink to="/products">Products</NavLink>
+            <NavLink to={`/account/${id}`}>Account</NavLink> 
             <NavLink to="/cart">Cart</NavLink> 
-            {/* <a onClick={logoutUser}>Logout</a> */}
+            <a onClick={logoutUser}>Logout</a>
           </nav>
         );
       }

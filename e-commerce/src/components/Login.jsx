@@ -2,6 +2,7 @@ import { useState} from "react"
 import { useNavigate } from "react-router-dom";
 //api
 import { useLoginMutation } from "../Redux/api";
+import { useGetAllUsersQuery } from "../Redux/api";
 
 function Login(props) {
   
@@ -13,22 +14,32 @@ function Login(props) {
   const [errorMsg, setError] = useState(null);
   
   const [login] = useLoginMutation();
-  
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  
+  const {data :allUserData, error} = useGetAllUsersQuery();
+
+  if (error) {
+    return <h2>Something went wrong!</h2>
+  } 
+  
   const eventHandler = async (event) => {
     event.preventDefault();
     const { data, error } = await login(userInfo);
-    console.log ("This is data from Login", data)
 
     if (error) {
-      // error.data
       setError(error.data);
     } else {
-      // data.token
+      const userData = allUserData.find((user)=> {
+        if (userInfo.username === user.username && userInfo.password === user.password){
+          return user
+        } 
+      })
+      // console.log("This is userdata", userData)
       props.setToken(data.token);
-      //TODO: change to Product list route later
-      navigate("/account");
+      props.setUserId(userData.id);
+      //change to Product list route
+      navigate(`/account/${userData.id}`);
     }
   };
 

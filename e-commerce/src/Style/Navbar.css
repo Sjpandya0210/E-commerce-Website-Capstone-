@@ -1,5 +1,6 @@
 .token {
-
+    display: flex;
+    justify-content: space-around;
 }
 .noToken {
     display: flex;
