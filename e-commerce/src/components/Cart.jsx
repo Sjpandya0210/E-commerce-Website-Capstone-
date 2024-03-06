@@ -40,16 +40,16 @@ function Cart (){
         <div>
             <h2>Your Selected Items</h2>
             {/* <button>X</button> */}
-            <ul>
+           
             {cartItems.map(item => (
-          <li key={item.id}>
-            <li>{item.name}</li>
-            <span>Quantity: {item.quantity}, </span>
-            <span>Price: ${item.price}, </span>
-            <span>Total: ${(item.price * item.quantity)}</span>
-            </li>
-        ))}
+          <ul key={item.id}>
+            <li>{item.name}: 
+            Quantity: {item.quantity},
+            Price: ${item.price}, 
+            Total: ${(item.price * item.quantity)}</li>
             </ul>
+        ))}
+           
             <h3>Total Price: ${totalPrice}</h3>
             {/* <button>Delete Item</button> */}
         </div>
