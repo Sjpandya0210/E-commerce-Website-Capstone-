@@ -2,8 +2,9 @@ module.exports = {
     moduleNameMapper: {
       "\\.css$": "identity-obj-proxy",
     },
-    transformIngnorePatterns:[
-      "/node_modules/"
-    ]
+    transformIgnorePatterns: [
+      '/node_modules/',
+    ],
+    testEnvironment: 'jsdom',
   };
   

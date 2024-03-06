@@ -3,7 +3,7 @@ function Home() {
     return (
       <div>
         <h1>Welcome to E-store</h1>
-        <img className= "img1" src={store_img} />
+        <img className= "img1" src={store_img} alt="image of cart in a store"  />
         <p>
         Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
         </p>
