@@ -1,12 +1,12 @@
 //api
 import { useCartByUserQuery } from "../Redux/api";
-function Cart ({token, id}){
+function Cart (){
+ //add token and id inside params 
+    // const {data, error} = useCartByUserQuery({token, id});
 
-    const {data, error} = useCartByUserQuery({token, id});
 
-
-    if (error) {
-        return <p>Something went wrong!</p>
+    // if (error) {
+    //     return <p>Something went wrong!</p>
     //   } else {
         // const userData = allUserData.find((user)=> {
         //   if (userInfo.username === user.username && userInfo.password === user.password){
@@ -22,13 +22,36 @@ function Cart ({token, id}){
 //gives us id?
 //setUserId function 
 
-}
+// }
 
-    console.log("this is data from Cart", data)
+//     console.log("this is data from Cart", data)
+
+// Dummy cart data
+    const cartItems = [
+    { id: 1, name: 'T-shirt', price: 20.99, quantity: 2 },
+    { id: 2, name: 'Phone Case', price: 15.49, quantity: 1 },
+    { id: 3, name: 'Socks', price: 10.00, quantity: 3 },
+  ];
+// Calculate total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+
     return (
         <div>
             <h2>Your Selected Items</h2>
-            <button>Delete Item</button>
+            {/* <button>X</button> */}
+            <ul>
+            {cartItems.map(item => (
+          <li key={item.id}>
+            <li>{item.name}</li>
+            <span>Quantity: {item.quantity}, </span>
+            <span>Price: ${item.price}, </span>
+            <span>Total: ${(item.price * item.quantity)}</span>
+            </li>
+        ))}
+            </ul>
+            <h3>Total Price: ${totalPrice}</h3>
+            {/* <button>Delete Item</button> */}
         </div>
     )
 }
