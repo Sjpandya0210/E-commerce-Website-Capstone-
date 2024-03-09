@@ -59,12 +59,47 @@ account: builder.query ({
 }),
 cartByUser: builder.query ({
   query: ({token, id}) => ({
-    url:`/carts/user/${id}`,
+    url: `/carts/user/${id}`,
     headers:{
       authorization:`Bearer ${token}`
     }
   }),
 }),
+allCart: builder.query ({
+  query: ({token}) => ({
+    url:`/carts`,
+    headers:{
+      authorization:`Bearer ${token}`
+    }
+  }),
+}),
+singleCart: builder.query ({
+  query: () => ({
+    url:`/carts/${id}`,
+    headers:{
+      authorization:`Bearer ${token}`
+    }
+  }),
+}),
+deleteCart: builder.mutation ({
+  query: ({token, id}) => ({
+    url:`/carts/${id}`,
+    method: "DELETE",
+    headers:{
+      authorization:`Bearer ${token}`
+    }
+  }),
+}),
+addToCart: builder.mutation({
+  query:({token, body}) => ({
+    url:'/carts',
+    method: "POST",
+    headers:{
+      authorization:`Bearer ${token}`
+    },
+    body
+  })
+})
 })
 })
 
@@ -76,4 +111,8 @@ export const { useRegisterMutation,
   useAccountQuery, 
   useCartQuery,
   useGetAllUsersQuery,
-  useCartByUserQuery } = apiSlice;
+  useCartByUserQuery,
+  useAllCartQuery,
+  useSingleCartQuery,
+  useDeleteCartMutation,
+  useAddToCartMutation} = apiSlice;

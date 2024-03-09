@@ -39,7 +39,7 @@ function Login(props) {
       props.setToken(data.token);
       props.setUserId(userData.id);
       //change to Product list route
-      navigate(`/account/${userData.id}`);
+      navigate(`/account`);
     }
   };
 

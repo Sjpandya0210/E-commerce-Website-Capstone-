@@ -24,17 +24,17 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar token = {token} setToken = {setToken} userId = {userId} setUserId = {setUserId}/>
+      <Navbar token = {token} setToken = {setToken} />
       <Routes>
       <Route path = "/" element = {<Home/>}/>
       <Route path="/register" element ={<Register/>}/>
       <Route path="/products" element ={<Products/>}/>
       <Route path="/login" element ={<Login setToken={setToken} setUserId={setUserId}/>}/>
       <Route path="" element ={<Logout/>}/>
-      <Route path="/productdetails/:id" element ={<ProductDetails/>}/>
+      <Route path="/productdetails/:id" element ={<ProductDetails token={token} userId={userId}/>}/>
       {/* <Route path="/account" element ={<Account token={token}/>}/> */}
-      <Route path="/account/:id" element ={<Account token={token} userId={userId}/>}/>
-      <Route path="/cart/:id" element ={<Cart token = {token} userId={userId}/>}/>
+      <Route path="/account" element ={<Account token={token} userId={userId}/>}/>
+      <Route path="/cart" element ={<Cart token = {token} userId={userId}/>}/>
       </Routes>
       </BrowserRouter>
     </div>
