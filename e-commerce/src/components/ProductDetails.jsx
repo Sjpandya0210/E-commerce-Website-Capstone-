@@ -1,7 +1,8 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
+import { useState } from "react";
 //api
 import { useProductDetailsQuery, useAddToCartMutation, useSingleCartQuery } from "../Redux/api";
-function ProductDetails ({token, userId}){
+function ProductDetails ({token, userId, cartItems, setCartItems}){
     let { id } = useParams();
   const navigate = useNavigate();
   const [addToCart] = useAddToCartMutation();
@@ -21,21 +22,20 @@ function ProductDetails ({token, userId}){
   
   const addtoCartbtn = async () => {
     try {
-      
       const productId = id;
-      // Assuming you have the necessary product details in yourProductObject
       const cartProduct = {
+        name: data.title,
         productId: productId,
-        quantity: 1, // You may adjust the quantity based on your use case
+        quantity: 1,
+        price: data.price,
+        image: data.image
       };
-     const body = {id: userId, products: [cartProduct] }
-      // Perform the mutation to add the product to the cart
-      await addToCart({ token, body });
-
-      // After the mutation is successful, you may want to refetch the cart data
-      // to update the UI with the latest cart information
-    
-      navigate("/cart")
+    //  const body = {id: userId, products: [cartProduct] }
+    //   // Perform the mutation to add the product to the cart
+    //   await addToCart({ token, body });
+    console.log("This is Product details cart items", cartItems, cartProduct, id)
+    setCartItems(prev => [...prev, cartProduct])
+    navigate("/cart");
     } catch (error) {
     console.error("Error adding to cart", error)
    }
@@ -58,6 +58,7 @@ function ProductDetails ({token, userId}){
             {token &&
             <button className="btn2" onClick = {addtoCartbtn}>Add to cart</button>}
             <h2>Product Details</h2>
+            <p>Name: {data.title}</p>
             <img className= "img" src={data.image}/>
             <p>Price: {data.price}</p>
             <p>Category: {data.category} </p>

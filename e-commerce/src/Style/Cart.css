@@ -1,0 +1,10 @@
+.image12{
+    width: 150px;
+    height: 200px;
+    
+}
+.cartUL{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
