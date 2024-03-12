@@ -30,10 +30,12 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
         price: data.price,
         image: data.image
       };
-    //  const body = {id: userId, products: [cartProduct] }
-    //   // Perform the mutation to add the product to the cart
-    //   await addToCart({ token, body });
-    console.log("This is Product details cart items", cartItems, cartProduct, id)
+    // Perform the mutation to add the product to the cart
+    await addToCart({ token, body: { id: userId, products: [cartProduct], productId} });
+    const ls = localStorage.getItem("cartItems")
+    const lsArr = JSON.parse(ls)
+    lsArr.push(cartProduct)
+    localStorage.setItem("cartItems", JSON.stringify(lsArr))
     setCartItems(prev => [...prev, cartProduct])
     navigate("/cart");
     } catch (error) {
@@ -41,17 +43,6 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
    }
   };
 
-// {API response
-// 	"id": 6,
-// 	"title": "Solid Gold Petite Micropave ",
-// 	"price": 168,
-// 	"description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-// 	"category": "jewelery",
-// 	"image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-// 	"rating": {
-// 		"rate": 3.9,
-// 		"count": 70
-// 	}
     return (
         <div>
             <button className="btn" onClick={handleClick}>X</button>

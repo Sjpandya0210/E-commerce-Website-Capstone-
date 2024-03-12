@@ -74,7 +74,7 @@ allCart: builder.query ({
   }),
 }),
 singleCart: builder.query ({
-  query: () => ({
+  query: ({token, id}) => ({
     url:`/carts/${id}`,
     headers:{
       authorization:`Bearer ${token}`

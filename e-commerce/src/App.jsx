@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './App.css'
 //Components without auth
 import Register from './components/Register'
@@ -17,9 +17,21 @@ import Cart from "./components/Cart"
 
 function App() {
  const [token, setToken] = useState(null);
- const [userId, setUserId] = useState(null);
- const [cartItems, setCartItems] = useState([])
- console.log("This is token from app", token);
+ const [userId, setUserId] = useState(() => {
+  // Initialize userId with data from localStorage or null
+  return localStorage.getItem("userId") || null;
+});
+ const [cartItems, setCartItems] = useState(() => {
+  // Initialize cartItems with data from localStorage or an empty array
+  const storedCartItems = localStorage.getItem("cartItems");
+  return storedCartItems ? JSON.parse(storedCartItems) : [];
+});
+useEffect(() => {
+  // console.log("userId from APP:******", userId);
+  // console.log("cartItems: from APP*******", cartItems);
+  // Save userId to localStorage whenever it changes
+  localStorage.setItem("userId", userId);
+}, []);
 
   return (
     <div>
