@@ -37,12 +37,12 @@ function Products () {
                     <div className = "productsInfo" key = {product.id}>
                         <h2>{product.title}</h2>
                         <img className= "img" src={product.image}/>
-                        <p>Price: {product.price}</p>
-                        <p>Rate: {product.rating.rate} Count: {product.rating.count}</p>
-                        <p>Category: {product.category} </p>
+                        <p><strong>Price:</strong> {product.price}</p>
+                        <p><strong>Rate:</strong> {product.rating.rate} <strong>Reviews:</strong> {product.rating.count}</p>
+                        <p><strong>Category:</strong> {product.category} </p>
                         {/* <p>{product.description}</p> */}
                         {/* add link to single product */}
-                        <Link to={`/productdetails/${product.id}`}>See Details</Link>
+                        <Link to={`/productdetails/${product.id}`} className="btnDetails">See Details</Link>
                     </div>
                 )
             })}

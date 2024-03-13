@@ -13,6 +13,7 @@ import ProductDetails from "./components/ProductDetails"
 import Logout from './components/Logout'
 import Account from "./components/Account"
 import Cart from "./components/Cart"
+import Checkout from "./components/Checkout"
 
 
 function App() {
@@ -47,6 +48,7 @@ useEffect(() => {
       {/* <Route path="/account" element ={<Account token={token}/>}/> */}
       <Route path="/account" element ={<Account token={token} userId={userId}/>}/>
       <Route path="/cart" element ={<Cart token = {token} userId={userId} cartItems= {cartItems} setCartItems = {setCartItems}/>}/>
+      <Route path="/checkout" element={<Checkout/>} />
       </Routes>
       </BrowserRouter>
     </div>

@@ -5,5 +5,22 @@
 }
 .productsInfo{
     display: block;
-    background-color: rgb(73, 73, 73);
+    background-color: #EFE7BC;
+    color: rgb(3, 3, 3);
+    font-size: 15px;
+}
+.btnDetails{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btnDetails:hover{
+    background-color: #0056b3;
 }

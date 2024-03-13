@@ -2,6 +2,8 @@ import { useParams, useNavigate} from "react-router-dom";
 import { useState } from "react";
 //api
 import { useProductDetailsQuery, useAddToCartMutation, useSingleCartQuery } from "../Redux/api";
+//Style
+import "../Style/ProductDetails.css"
 function ProductDetails ({token, userId, cartItems, setCartItems}){
     let { id } = useParams();
   const navigate = useNavigate();
@@ -45,17 +47,18 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
 
     return (
         <div>
-            <button className="btn" onClick={handleClick}>X</button>
+            <button className="btn" onClick={handleClick}>Back</button>
+            <div className="pDetails">
             {token &&
             <button className="btn2" onClick = {addtoCartbtn}>Add to cart</button>}
             <h2>Product Details</h2>
             <p>Name: {data.title}</p>
             <img className= "img" src={data.image}/>
-            <p>Price: {data.price}</p>
-            <p>Category: {data.category} </p>
+            <p><strong>Price:</strong> {data.price}</p>
+            <p><strong>Category: </strong>{data.category} </p>
             <p>{data.description}</p>
-            <p>Rate: {data.rating.rate} Count: {data.rating.count}</p>
-
+            <p><strong>Rate:</strong> {data.rating.rate} <strong>Reviews: </strong>{data.rating.count}</p>
+            </div>
         </div>
     )
 }

@@ -54,6 +54,9 @@ function Cart ({token, userId, cartItems, setCartItems}){
   const handleXbtn = () =>{
     navigate("/products")
   }
+  const handleCheckout = () => {
+    navigate("/checkout")
+  }
   const removeFromCart = async (productId) => {
     console.log("This is product ID", productId)
     try {
@@ -73,11 +76,13 @@ function Cart ({token, userId, cartItems, setCartItems}){
   };
 
     return (
-        <div>
+        <div className="cartDiv">
             <h2>Your Selected Items</h2>
-            <button onClick = {handleXbtn}>Back to Products</button>
+            <button onClick = {handleXbtn} className="btn1">Back to Products</button>
+            <button onClick = {handleCheckout} className="btn2">Checkout</button>
             {cartItems.length > 0 ? (
         cartItems.map(item => (
+          <div className="cart2">
           <ul key={item.productId} className="cartUl">
             <li>
               {item.name}:
@@ -90,6 +95,7 @@ function Cart ({token, userId, cartItems, setCartItems}){
               <button onClick={() => removeFromCart(item.productId)}>Remove from cart</button>
             </li>
           </ul>
+          </div>
           
         ))
       ) : (

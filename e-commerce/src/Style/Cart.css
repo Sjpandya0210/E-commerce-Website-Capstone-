@@ -1,10 +1,68 @@
-.image12{
-    width: 150px;
-    height: 200px;
-    
+.cartDiv{
+  background-color: #fbdfdf;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   /* Align items to the left */
 }
+.btn1 {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right:20px;
+  }
+  
+  .btn1:hover {
+    background-color: #820505; /* Darker Red */
+  }
+  
+  /* Button 2 */
+  .btn2 {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn2:hover {
+    background-color: #04740a; /* Darker Green */
+  }
 .cartUL{
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
+ list-style-type: none;
+ padding: 0;
 }
+.cartUl li {
+    border: 1px solid #ccc; /* Add border to create individual card */
+    border-radius: 8px; /* Round the corners */
+    margin-bottom: 10px; /* Add some space between each card */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+.cartUl li:last-child {
+    border-bottom: none;
+  }
+.cartUl li img {
+    width: 80px;
+    height: 100px;
+  }
+  
+  .cartUl li button {
+    background-color: #9c160c; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cartUl li button:hover {
+    background-color: #c30c0c; 
+  }

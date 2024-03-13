@@ -1,0 +1,39 @@
+.checkout-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(132, 248, 248);
+  }
+  
+  .checkout-title {
+    text-align: center;
+  }
+  
+  .order-summary {
+    margin-bottom: 20px;
+  }
+  
+  .shipping-info {
+    margin-bottom: 40px;
+  }
+  
+  .input-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #024005;
+  }
