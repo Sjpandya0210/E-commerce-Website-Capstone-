@@ -31,24 +31,31 @@ function Cart ({token, userId, cartItems, setCartItems}){
         return acc + item.price * item.quantity;
       }, 0);
       setTotalPrice(total);
-      
-       // Merge storedCartItems with local cartItems and remove duplicates
-      // const mergedItems = [...cartItems, ...storedCartItems];
-      // const uniqueItems = Array.from(new Set(mergedItems.map((item) => item.id))).map(
-      //   (itemId) => mergedItems.find((item) => item.id === itemId)
-      // );
-
-      // Update cartItems state
-      // setCartItems(uniqueItems);
-
-      // Save cart items to localStorage
-      // localStorage.setItem("cartItems", JSON.stringify(uniqueItems));
-      
     } catch (error) {
       // Handle the error here
       console.error("Error in useEffect:", error);
     }
   }, [cartData]);
+  
+  const changeQuantity = (productId, newQuantity) => {
+    const updatedCart = cartItems.map(item => {
+      if (item.productId === productId) {
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+    setCartItems(updatedCart);
+    // You can update localStorage here if needed
+  };
+
+  //Add total of the cart
+  const calculateTotalPrice = () => {
+    let total = 0;
+    cartItems.forEach(item => {
+      total += item.price * item.quantity;
+    });
+    return total.toFixed(2); // Fixed to 2 decimal places
+  };
 
   //Clicking on x we go back to all products
   const handleXbtn = () =>{
@@ -80,6 +87,7 @@ function Cart ({token, userId, cartItems, setCartItems}){
             <h2>Your Selected Items</h2>
             <button onClick = {handleXbtn} className="btn1">Back to Products</button>
             <button onClick = {handleCheckout} className="btn2">Checkout</button>
+            <p><strong>Cart Total: </strong> ${calculateTotalPrice()}</p> 
             {cartItems.length > 0 ? (
         cartItems.map(item => (
           <div className="cart2">
@@ -87,8 +95,10 @@ function Cart ({token, userId, cartItems, setCartItems}){
             <li>
               {item.name}:
               {item.image && <img className = "image12" src={item.image} />}
-              {/* <input type= "number" value= {`${item.quantity}`}>
-              </input> */}
+              <input type= "number" 
+              value= {`${item.quantity}`} 
+              onChange={(e) => changeQuantity(item.productId, parseInt(e.target.value))}
+                    min="1"/>
               Quantity: {item.quantity},
               Price: ${item.price},
               Total: ${(item.price * item.quantity).toFixed(2)}
@@ -96,7 +106,7 @@ function Cart ({token, userId, cartItems, setCartItems}){
             </li>
           </ul>
           </div>
-          
+         
         ))
       ) : (
         <p>No items in the cart</p>

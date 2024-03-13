@@ -32,16 +32,27 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
         price: data.price,
         image: data.image
       };
+      // to make sure that if accidently added two of same items, it adds in to existing one
+      const existingItemIndex = cartItems.findIndex(item => item.productId === productId);
+
+      if (existingItemIndex !== -1) {
+        // If the item exists in the cart, update its quantity
+        const updatedCart = [...cartItems];
+        updatedCart[existingItemIndex].quantity += 1;
+        setCartItems(updatedCart);
+      } else {
+        // If the item does not exist in the cart, add it
+        setCartItems(prev => [...prev, cartProduct]);
+      }
     // Perform the mutation to add the product to the cart
     await addToCart({ token, body: { id: userId, products: [cartProduct], productId} });
-
-
+   
     const ls = localStorage.getItem("cartItems")
-    const lsArr = JSON.parse(ls)
+    const lsArr = JSON.parse(ls) 
     lsArr?.push(cartProduct)
     localStorage.setItem("cartItems", JSON.stringify(lsArr))
 
-    setCartItems(prev => [...prev, cartProduct])
+    // setCartItems(prev => [...prev, cartProduct])
     
     navigate("/cart");
     } catch (error) {
