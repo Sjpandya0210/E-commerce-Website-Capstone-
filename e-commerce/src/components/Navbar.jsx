@@ -11,7 +11,7 @@ function Navbar (props) {
 
       if (props.token) {
         return (
-          <nav className="token">
+          <nav className="navbar123">
             <NavLink to="/">Home</NavLink> 
             <NavLink to="/products">Products</NavLink>
             <NavLink to={`/account`}>Account</NavLink> 
@@ -21,10 +21,10 @@ function Navbar (props) {
         );
       }
       return (
-        <nav className="noToken">
-          <NavLink to="/">Home</NavLink>
+        <nav className="navbar123">
+          <NavLink to="/"className="lHome">Home</NavLink>
           <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login"className="login-link">Login</NavLink>
           <NavLink to="/products">Products</NavLink>
         </nav>
       );

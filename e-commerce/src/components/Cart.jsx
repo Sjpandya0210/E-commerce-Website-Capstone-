@@ -95,9 +95,7 @@ function Cart ({token, userId, cartItems, setCartItems}){
       ) : (
         <p>No items in the cart</p>
       )}
-      {/* <button onClick = {removeFromCart}>Remove from cart</button> */}
-           
-            {/* <button onClick = {handleDelete}>Delete Item</button> */}
+
         </div>
     )
 }

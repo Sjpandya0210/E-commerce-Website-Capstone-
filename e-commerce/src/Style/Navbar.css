@@ -1,8 +1,26 @@
-.token {
+
+.navbar123 {
     display: flex;
     justify-content: space-around;
+    border: 2px solid #2a2929; 
+    padding: 10px; 
+    background-color: #b1e2ea;
+    margin: 0 25px 0 25px;
+    padding-right: 25px;
 }
-.noToken {
+.navbar123 a {
+    text-decoration: none; /* Remove underlines from the links */
+    color: #590202; /* Set link color */
+  }
+  .navbar123 a:hover {
+    color: #1d037d; /* Change link color on hover */
+  }
+.login-link {
     display: flex;
-    justify-content: space-around;
-}
+    justify-content: space-between; /* Add space between items */
+    align-items: center; /* Align items vertically */
+    padding: 0 25px; /* Add padding to create space */
+  }
+  .lHome{
+    margin: 0 25px;
+  }

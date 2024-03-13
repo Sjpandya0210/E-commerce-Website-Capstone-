@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 //api
 import { useLoginMutation } from "../Redux/api";
 import { useGetAllUsersQuery } from "../Redux/api";
+//style
+import "../Style/Login.css"
 
 function Login(props) {
   
@@ -54,10 +56,12 @@ function Login(props) {
     <div>
       <h2>Login</h2>
 
-      <form onSubmit={eventHandler}>
+      <form onSubmit={eventHandler} className="lForm">
+        <div className="inputGroup">
         <label>
           Username: johnd
           <input
+            className="uName"
             type="text"
             placeholder="Username"
             name="username"
@@ -66,8 +70,9 @@ function Login(props) {
             onChange={onUserInput}
           />
         </label>
-        <label htmlFor="password">Password: m38rmF$</label>
+        <label htmlFor="password">Password: m38rmF$
         <input
+          className="pName"
           type="password"
           placeholder="password"
           name="password"
@@ -75,7 +80,9 @@ function Login(props) {
           value={userInfo.password}
           onChange={onUserInput}
         />
-        <button>Submit</button>
+        </label>
+        </div>
+        <button className="btn">Submit</button>
       </form>
     </div>
   );
