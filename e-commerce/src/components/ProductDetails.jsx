@@ -36,7 +36,7 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
     await addToCart({ token, body: { id: userId, products: [cartProduct], productId} });
     const ls = localStorage.getItem("cartItems")
     const lsArr = JSON.parse(ls)
-    lsArr.push(cartProduct)
+    lsArr?.push(cartProduct)
     localStorage.setItem("cartItems", JSON.stringify(lsArr))
     setCartItems(prev => [...prev, cartProduct])
     navigate("/cart");
