@@ -34,11 +34,15 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
       };
     // Perform the mutation to add the product to the cart
     await addToCart({ token, body: { id: userId, products: [cartProduct], productId} });
+
+
     const ls = localStorage.getItem("cartItems")
     const lsArr = JSON.parse(ls)
     lsArr?.push(cartProduct)
     localStorage.setItem("cartItems", JSON.stringify(lsArr))
+
     setCartItems(prev => [...prev, cartProduct])
+    
     navigate("/cart");
     } catch (error) {
     console.error("Error adding to cart", error)
