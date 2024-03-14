@@ -24,3 +24,29 @@
 .btnDetails:hover{
     background-color: #0056b3;
 }
+.filters{
+    display: flex;
+}
+.priceBtn,
+.categoryBtn{
+flex:1;
+}
+.categoryBtn button {
+    background-color: #08d25c;
+}
+.categoryBtn :active {
+    background-color: #003268;
+}
+.categoryBtn :hover {
+    background-color: #0056b3;
+}
+.priceBtn button {
+    background-color: #08d25c;
+}
+.priceBtn :hover {
+    background-color: #0056b3;
+}
+.priceBtn :active{
+    background-color: #003268;
+}
+
