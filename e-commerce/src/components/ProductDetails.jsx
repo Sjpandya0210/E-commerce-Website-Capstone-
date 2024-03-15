@@ -61,7 +61,7 @@ function ProductDetails ({token, userId, cartItems, setCartItems}){
   };
 
     return (
-        <div>
+        <div className="box">
             <button className="btn" onClick={handleClick}>Back</button>
             <div className="pDetails">
             {token &&

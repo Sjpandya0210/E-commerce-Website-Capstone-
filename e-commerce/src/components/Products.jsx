@@ -44,6 +44,7 @@ function Products () {
     }
     //Function to handle price range checkbox change
     function handlePriceRangeChange(event) {
+        console.log("This is event target",event.target.value)
         const [min, max] = JSON.parse(event.target.value);
         if (event.target.checked) {
             setSelectedPriceRange([min, max]);

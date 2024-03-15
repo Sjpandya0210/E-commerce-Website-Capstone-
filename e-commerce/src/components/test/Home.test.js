@@ -22,9 +22,9 @@ describe ("Home Component", () => {
 })
 test ("display the paragraph", () => {
     render(<Home />);
-    const para1 = screen.getByText("Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.");
+    const para1 = screen.getByText(" Welcome to our vibrant e-store, where shopping meets convenience and style!");
     expect (para1).toBeInTheDocument();
-    const para2 = screen.getByText("Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+    const para2 = screen.getByText("Explore our exclusive deals, unbeatable discounts, and personalized recommendations, all customized just for you.");
       expect(para2).toBeInTheDocument();
 })
 }) 

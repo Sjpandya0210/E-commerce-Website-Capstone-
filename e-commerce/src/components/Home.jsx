@@ -1,14 +1,27 @@
 import store_img from "../assets/store_home.jpg"
+import ring from "../assets/ring.jpg"
+import jewelry from "../assets/jewelry.jpg"
+import electronics from "../assets/electronics.jpg"
+import "../Style/Home.css"
 function Home() {
     return (
-      <div>
+      <div className="main">
         <h1>Welcome to E-store</h1>
-        <img className= "img1" src={store_img} alt="image of cart in a store"  />
+        <div className="container show-images">
+        <div className="top-images">
+        <img className="img1" src={ring} alt="image of ring" />
+        <img className="img2" src={jewelry} alt="image of jewelry" />
+        </div>
+        <div className="bottom-images">
+        <img className="img3" src={store_img} alt="image of cart in a store" />
+        <img className="img4" src={electronics} alt="image of electronics" />
+        </div>
+        </div>
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+        Welcome to our vibrant e-store, where shopping meets convenience and style! 
         </p>
         <p>
-        Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Explore our exclusive deals, unbeatable discounts, and personalized recommendations, all customized just for you.
         </p>
       </div>
     );

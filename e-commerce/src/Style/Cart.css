@@ -9,12 +9,13 @@
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s transform 0.3s;
     margin-right:20px;
   }
   
   .btn1:hover {
     background-color: #820505; /* Darker Red */
+    transform: scale(1.1); /* Grow the size by 10% */
   }
   
   /* Button 2 */
@@ -29,7 +30,8 @@
   }
   
   .btn2:hover {
-    background-color: #04740a; /* Darker Green */
+    background-color: #04740a; 
+    transform: scale(1.1); /* Grow the size by 10% */
   }
 .cartUL{
  list-style-type: none;
@@ -59,9 +61,11 @@
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    
   }
   
   .cartUl li button:hover {
     background-color: #c30c0c; 
+    transform: scale(1.1); /* Grow the size by 10% */
   }
