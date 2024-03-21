@@ -5,12 +5,12 @@ import "../Style/Navbar.css"
 function Navbar (props) {
     const navigate = useNavigate();
     const logoutUser = () => {
-        props.setToken(null);
+        props.setUserId(null);
         navigate("/");
       };
     
 
-      if (props.token) {
+      if (props.userId) {
         return (
           <nav className="navbar123">
             <NavLink to="/">Home</NavLink> 

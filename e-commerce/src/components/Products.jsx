@@ -18,7 +18,7 @@ function Products () {
       if (error) {
         return <p>Something went wrong!</p>;
       }
-      // Filter products by selected category
+
     // Filter products by selected category
     const filteredProductsByCategory = selectedCategory.length > 0
         ? data.filter(product => selectedCategory.includes(product.category))
@@ -88,20 +88,20 @@ function Products () {
                         onChange={handleCategoryChange} 
                         checked={selectedCategory.includes("electronics")} /> Electronics
                     </label>
-                    <button onClick={clearCategories} className="btnClear">Clear All</button>
+                    <button onClick={clearCategories}>Clear All</button>
                 </div>
                 <div className="priceBtn">
                     <label>
-                        <input type="checkbox" value="[0, 100]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 0 && selectedPriceRange[1] === 100} /> 0-100
+                        <input type="checkbox" value="[0, 100]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 0 && selectedPriceRange[1] === 100} /> Up to $100
                     </label>
                     <label>
-                        <input type="checkbox" value="[101, 300]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 101 && selectedPriceRange[1] === 300} /> 101-300
+                        <input type="checkbox" value="[101, 300]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 101 && selectedPriceRange[1] === 300} /> $101 to $300
                     </label>
                     <label>
-                        <input type="checkbox" value="[301, 700]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 301 && selectedPriceRange[1] === 700} /> 301-700
+                        <input type="checkbox" value="[301, 700]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 301 && selectedPriceRange[1] === 700} /> $301 to $700
                     </label>
                     <label>
-                        <input type="checkbox" value="[701, 1000]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 701 && selectedPriceRange[1] === 1000} /> 700 - 1000
+                        <input type="checkbox" value="[701, 1000]" onChange={handlePriceRangeChange} checked={selectedPriceRange[0] === 701 && selectedPriceRange[1] === 1000} /> $700 to $1000
                     </label>
                     <button onClick={clearPriceRange}>Clear All Prices</button>
                 </div>

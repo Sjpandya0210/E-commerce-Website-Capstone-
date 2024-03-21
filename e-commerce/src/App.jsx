@@ -24,20 +24,21 @@ function App() {
 });
  const [cartItems, setCartItems] = useState(() => {
   // Initialize cartItems with data from localStorage or an empty array
-  const storedCartItems = localStorage.getItem("cartItems");
-  return storedCartItems ? JSON.parse(storedCartItems) : [];
+  const storedCartItems =JSON.parse (localStorage.getItem("cartItems"));
+  return storedCartItems === null ? storedCartItems : [];
 });
 useEffect(() => {
   // console.log("userId from APP:******", userId);
   // console.log("cartItems: from APP*******", cartItems);
   // Save userId to localStorage whenever it changes
   localStorage.setItem("userId", userId);
-}, []);
+  localStorage.setItem("cartItems", cartItems);
+}, [userId, cartItems]);
 
   return (
     <div>
       <BrowserRouter>
-      <Navbar token = {token} setToken = {setToken} />
+      <Navbar userId={userId} setUserId={setUserId} />
       <Routes>
       <Route path = "/" element = {<Home/>}/>
       <Route path="/register" element ={<Register/>}/>

@@ -32,21 +32,26 @@
 flex:1;
 }
 .categoryBtn button {
-    background-color: #08d25c;
+    background-color: #7ee7aa;
+   padding: 3px;
+   margin-left: 10px;
 }
 .categoryBtn :active {
     background-color: #003268;
 }
 .categoryBtn :hover {
     background-color: #0056b3;
+    color:White;
 }
 .priceBtn button {
-    background-color: #08d25c;
+    background-color: #7ee7aa;
+    padding: 3px;
+    margin-left: 10px;
 }
 .priceBtn :hover {
     background-color: #0056b3;
+    color:White;
 }
 .priceBtn :active{
     background-color: #003268;
 }
-

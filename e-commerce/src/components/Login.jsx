@@ -40,6 +40,7 @@ function Login(props) {
       // console.log("This is userdata", userData)
       props.setToken(data.token);
       props.setUserId(userData.id);
+      localStorage.setItem("userId",userData.id)
       //change to Product list route
       navigate(`/products`);
     }
@@ -59,7 +60,7 @@ function Login(props) {
       <form onSubmit={eventHandler} className="lForm">
         <div className="inputGroup">
         <label>
-          Username: johnd
+          Username:
           <input
             className="uName"
             type="text"
@@ -70,7 +71,7 @@ function Login(props) {
             onChange={onUserInput}
           />
         </label>
-        <label htmlFor="password">Password: m38rmF$
+        <label htmlFor="password">Password:
         <input
           className="pName"
           type="password"
