@@ -1,8 +1,14 @@
-# React + Vite
+# E-commerce-Website-Capstone
+It is an E-store shopping Application.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application Features:
 
-Currently, two official plugins are available:
+This application is a fully operational online store where users can be able to see all the products, individual product's details, add products to their cart, register, login, logout, or purchase products.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technology used in this Project:
+
+1. HTML,CSS : designing page layout.
+2. Javascript: all the front end logic has been written in javascript.
+3. React framework and Redux
+
+
