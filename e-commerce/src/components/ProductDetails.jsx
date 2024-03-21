@@ -36,35 +36,23 @@ function ProductDetails({ token, userId, cartItems, setCartItems }) {
         price: data.price,
         image: data.image,
       };
+    //Check if the item already exists in cartItems
+      const existingItem = cartItems.find(item => item.productId === productId);
 
-      // Perform the mutation to add the product to the cart
-      // await addToCart({ token, body: { id: userId, products: [cartProduct], productId} });
-
-      const ls = localStorage.getItem("cartItems");
-      let lsArr = [];
-      const newCartitem = {};
-
-      if (ls === null) lsArr?.push(cartProduct);
-      else {
-        lsArr = JSON.parse(ls);
-        lsArr?.push(cartProduct);
+      if (existingItem) {
+        // If item exists, update its quantity
+        const updatedCart = cartItems.map(item =>
+          item.productId === productId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        setCartItems(updatedCart);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // Update localStorage
+      } else {
+        const updatedCart = [...cartItems, cartProduct];
+        setCartItems(updatedCart);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // Update localStorage
       }
-      
-      lsArr?.map((item) => {
-        if (newCartitem[item.productId]) {
-          newCartitem[item.productId].quantity += 1;
-        } else {
-          newCartitem[item.productId] = item;
-        }
-      });
-
-      const output = JSON.stringify(Object.values(newCartitem));
-      localStorage.setItem("cartItems", output);
-      
-      while (cartItems.length) {
-        cartItems.pop();
-      }
-      cartItems.push(...Object.values(newCartitem));
 
       navigate("/cart");
     } catch (error) {
