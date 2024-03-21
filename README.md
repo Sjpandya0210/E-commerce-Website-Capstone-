@@ -7,6 +7,6 @@ This application is a fully operational online store where users can be able to 
 
 Technology used in this Project:
 
-HTML,CSS : designing page layout.
-Javascript: all the front end logic has been written in javascript.
-React framework and Redux
+1. HTML,CSS : designing page layout.
+2. Javascript: all the front end logic has been written in javascript.
+3. React framework and Redux
