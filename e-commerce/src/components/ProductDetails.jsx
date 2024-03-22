@@ -36,25 +36,35 @@ function ProductDetails({ token, userId, cartItems, setCartItems }) {
         price: data.price,
         image: data.image,
       };
-    //Check if the item already exists in cartItems
-      const existingItem = cartItems.find(item => item.productId === productId);
+    
+    const ls = localStorage.getItem("cartItems");
+    let lsArr = [];
+    const newCartitem = {};
 
-      if (existingItem) {
-        // If item exists, update its quantity
-        const updatedCart = cartItems.map(item =>
-          item.productId === productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-        setCartItems(updatedCart);
-        localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // Update localStorage
+    if (ls === null) lsArr?.push(cartProduct);
+    else {
+      lsArr = JSON.parse(ls);
+      lsArr?.push(cartProduct);
+    }
+    
+    lsArr?.map((item) => {
+      if (newCartitem[item.productId]) {
+        newCartitem[item.productId].quantity += 1;
       } else {
-        const updatedCart = [...cartItems, cartProduct];
-        setCartItems(updatedCart);
-        localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // Update localStorage
+        newCartitem[item.productId] = item;
       }
+    });
 
-      navigate("/cart");
+    const output = JSON.stringify(Object.values(newCartitem));
+    localStorage.setItem("cartItems", output);
+    
+    while (cartItems.length) {
+      cartItems.pop();
+    }
+    cartItems.push(output);
+
+    navigate("/cart");
+
     } catch (error) {
       console.error("Error adding to cart", error);
     }

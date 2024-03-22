@@ -22,29 +22,16 @@ function App() {
   // Initialize userId with data from localStorage or null
   return localStorage.getItem("userId") || null;
 });
-//  const [cartItems, setCartItems] = useState(() => {
-//   // Initialize cartItems with data from localStorage or an empty array
-//   const storedCartItems =localStorage.getItem("cartItems");
-//   // return storedCartItems === null ? JSON.parse (storedCartItems) : [];
-//   return storedCartItems ? JSON.parse(storedCartItems) : [];
-// });
-
-const [cartItems, setCartItems] = useState(() => {
+ const [cartItems, setCartItems] = useState(() => {
   // Initialize cartItems with data from localStorage or an empty array
-  let storedCartItems = localStorage.getItem("cartItems");
-  try {
-    storedCartItems = JSON.parse(storedCartItems);
-  } catch (error) {
-    console.error("Error parsing cartItems from localStorage:", error);
-    storedCartItems = [];
-  }
-  return Array.isArray(storedCartItems) ? storedCartItems : [];
+  const storedCartItems =localStorage.getItem("cartItems");
+  // return storedCartItems === null ? JSON.parse (storedCartItems) : [];
+  return storedCartItems ? JSON.parse(storedCartItems) : [];
 });
 
 useEffect(() => {
-
   localStorage.setItem("userId", userId);
-  localStorage.setItem("cartItems", cartItems);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }, [userId, cartItems]);
 
   return (

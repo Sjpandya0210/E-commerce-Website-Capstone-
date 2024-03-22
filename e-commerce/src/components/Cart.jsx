@@ -8,26 +8,23 @@ import { useCartByUserQuery, useDeleteCartMutation } from "../Redux/api";
 import "../Style/Cart.css";
 
 function Cart({ token, userId, cartItems, setCartItems }) {
-  let { id } = useParams();
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
-
-  const [deleteCart] = useDeleteCartMutation();
-  // console.log("this is userId", userId);
 
   const { data: cartData, error: cartError } = useCartByUserQuery({
     token,
     id: userId,
   });
-  console.log("This is cart data Api", cartData);
+  
   useEffect(() => {
-    console.log("Entering useEffect");
     try {
+      console.log("cartItems", JSON.parse(cartItems[0]))
+     
+     
       if (!cartData) {
-        console.log("No cart data available");
         return;
       } // Return early if cartData is not available
-
+      setCartItems(JSON.parse(cartItems[0]))
       const storedCartItems = cartData?.products || [];
       //Calculate total price
       const total = storedCartItems.reduce((acc, item) => {
@@ -68,7 +65,6 @@ function Cart({ token, userId, cartItems, setCartItems }) {
     navigate("/checkout");
   };
   const removeFromCart = async (productId) => {
-    console.log("This is product ID", productId);
     try {
       localStorage.getItem("cartItems");
       const updatedCart = cartItems.filter(
