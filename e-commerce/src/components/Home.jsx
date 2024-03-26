@@ -5,7 +5,7 @@ import electronics from "../assets/electronics.jpg"
 import "../Style/Home.css"
 function Home() {
     return (
-      <div className="main">
+      <div className="main1234">
         <h1>Welcome to E-store</h1>
         <div className="container show-images">
         <div className="top-images">

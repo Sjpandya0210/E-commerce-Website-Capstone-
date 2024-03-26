@@ -3,7 +3,30 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgb(250, 217, 213);
+  background-color: rgb(255, 253, 240);
   color:black;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content overflow */
 }
+/* Media query for smaller devices */
+@media (max-width: 350px) {
+  #root {
+    padding: .5rem; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Media query for tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #root {
+    max-width: 960px; /* Adjust max-width for tablets */
+  }
+}
+
 

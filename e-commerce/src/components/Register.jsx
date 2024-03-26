@@ -1,6 +1,7 @@
 import { useState } from "react";
 //api
 import { useRegisterMutation } from "../Redux/api";
+import "../Style/Register.css"
 
 function Register() {
   const [nameForm, setNameForm] = useState({
@@ -36,9 +37,6 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // form values are {nameForm, geoLocationForm, userForm, addressForm}
-    // register(nameForm, geoLocationForm, userForm, addressForm)
-    // console.log("this is handle submit", data);
     setForm({
     name: { ...nameForm },
     address: { geolocation: { ...geoLocationForm }, ...addressForm },
@@ -52,13 +50,7 @@ function Register() {
         //error.data.message --> error message
         setError(error.data.message);
         console.log(`error ${JSON.stringify(error.data.message)}`);
-     } //else {
-    //     // console.log(props)
-    //     //data.token --> has token value
-    //     // props.setToken(data.token);
-    //     console.log(`data ${JSON.stringify(data)}`);
-    //   }
-
+     } 
   };
 
   const handleChangeName = (e) =>
@@ -76,11 +68,10 @@ function Register() {
 
   return (
     <div>
-      <h2>Register Form</h2>
-      {/* error message */}
+      <h2>Registration Form</h2>
         {errorMsg ? <p>{errorMsg}</p> : <span />}
       <form onClick={handleSubmit}>
-        <label htmlFor="email">Email: </label>
+        <label htmlFor="email">Email:
         <input
           type="text"
           value={userForm.email}
@@ -88,8 +79,9 @@ function Register() {
           onChange={handleChangeUserForm}
           placeholder="Email"
         />
+        </label>
 
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Username:
         <input
           type="text"
           value={userForm.username}
@@ -97,8 +89,9 @@ function Register() {
           onChange={handleChangeUserForm}
           placeholder="Username"
         />
+        </label>
 
-        <label htmlFor="password">Password: </label>
+        <label htmlFor="password">Password: 
         <input
           type="password"
           value={userForm.password}
@@ -106,8 +99,9 @@ function Register() {
           onChange={handleChangeUserForm}
           placeholder="Password"
         />
+        </label>
 
-        <label htmlFor="name">Firstname:</label>
+        <label htmlFor="name">Firstname:
         <input
           type="text"
           value={nameForm.firstname}
@@ -115,8 +109,9 @@ function Register() {
           onChange={handleChangeName}
           placeholder="Firstname"
         />
+        </label>
 
-        <label htmlFor="name">Lastname: </label>
+        <label htmlFor="name">Lastname: 
         <input
           type="text"
           value={nameForm.lastname}
@@ -124,8 +119,8 @@ function Register() {
           onChange={handleChangeName}
           placeholder="Lastname"
         />
-
-        <label htmlFor="address">City:</label>
+        </label>
+        <label htmlFor="address">City:
         <input
           type="text"
           value={addressForm.city}
@@ -133,8 +128,8 @@ function Register() {
           onChange={handleChangeAddress}
           placeholder="City"
         />
-
-        <label htmlFor="address">Street:</label>
+        </label>
+        <label htmlFor="address">Street:
         <input
           type="text"
           value={addressForm.street}
@@ -142,8 +137,8 @@ function Register() {
           onChange={handleChangeAddress}
           placeholder="Street"
         />
-
-        <label htmlFor="address">Number:</label>
+        </label>
+        <label htmlFor="address">Number:
         <input
           type="text"
           value={geoLocationForm.number}
@@ -151,8 +146,9 @@ function Register() {
           onChange={handleChangeAddress}
           placeholder="Number"
         />
+        </label>
 
-        <label htmlFor="address">Zipcode:</label>
+        <label htmlFor="address">Zipcode:
         <input
           type="text"
           value={geoLocationForm.zipcode}
@@ -160,18 +156,18 @@ function Register() {
           onChange={handleChangeAddress}
           placeholder="Zipcode"
         />
-
-        <label htmlFor="geolocation">Latitude:</label>
+        </label>
+        <label htmlFor="geolocation">Latitude:
         <input
           type="text"
           name="lat"
-        //   data-subfield="lat"
           value={geoLocationForm.lat}
           onChange={handleChangeGeolocation}
           placeholder="Latitude"
         />
+        </label>
 
-        <label htmlFor="geolocation">Longitude:</label>
+        <label htmlFor="geolocation">Longitude:
         <input
           type="text"
           name="long"
@@ -179,8 +175,9 @@ function Register() {
           onChange={handleChangeGeolocation}
           placeholder="Longitude"
         />
+        </label>
 
-        <label htmlFor="phone">Phone Number:</label>
+        <label htmlFor="phone">Phone Number:
         <input
           type="number"
           value={userForm.phone}
@@ -188,6 +185,7 @@ function Register() {
           onChange={handleChangeUserForm}
           placeholder="Phone Number"
         />
+        </label>
 
         <button >Submit</button>
       </form>

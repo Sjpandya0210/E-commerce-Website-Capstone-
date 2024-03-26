@@ -60,7 +60,7 @@ function Products () {
 
     
     return(
-        <div>
+        <div className="main12">
             <h2>List of All Products</h2>
             <div className="filters">
             <div className="categoryBtn">

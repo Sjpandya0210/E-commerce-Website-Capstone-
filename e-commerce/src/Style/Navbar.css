@@ -1,12 +1,14 @@
 
 .navbar123 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center; 
     border: 2px solid #2a2929; 
     padding: 10px; 
     background-color: #b1e2ea;
     margin: 0 25px;
     padding-right: 25px;
+    height: 50px;
 }
 
 .navbar123 a {
@@ -16,6 +18,12 @@
   .navbar123 a:hover {
     color: #1d037d; /* Change link color on hover */
   }
+  .navbar123 h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #17006c;
+    text-shadow: 2px 2px 4px rgb(151, 151, 252);
+  }
+  
 .login-link {
     display: flex;
     justify-content: space-between; /* Add space between items */
@@ -25,5 +33,28 @@
   .lHome{
     margin: 0 25px;
   }
+/* Media query for smaller screens */
+@media (max-width: 300px) {
+  .navbar123 {
+      /* Adjust styles for smaller screens */
+      padding: 0.25rem; 
+  }
+}
 
-  
+/* Media query for medium screens */
+@media (max-width: 768px) {
+  .navbar123 {
+      /* Adjust styles for medium screens */
+      padding: 0.5rem; /* Example padding for medium screens */
+      margin: 0; /* Remove horizontal margin for better responsiveness */
+      padding-right: 15px; /* Reduce right padding */
+  }
+
+  .login-link {
+      padding: 0 15px; /* Reduce padding for login link */
+  }
+
+  .lHome {
+      margin: 0; /* Remove margin for better spacing */
+  }
+}

@@ -13,6 +13,7 @@ function Navbar (props) {
       if (props.userId) {
         return (
           <nav className="navbar123">
+            <h2 >E-Store 🛍</h2>
             <NavLink to="/">Home</NavLink> 
             <NavLink to="/products">Products</NavLink>
             <NavLink to={`/account`}>Account</NavLink> 
@@ -23,10 +24,12 @@ function Navbar (props) {
       }
       return (
         <nav className="navbar123">
+          <h2 >E-Store 🛍</h2>
           <NavLink to="/"className="lHome">Home</NavLink>
           <NavLink to="/register">Register</NavLink>
           <NavLink to="/login"className="login-link">Login</NavLink>
           <NavLink to="/products">Products</NavLink>
+
         </nav>
       );
     }

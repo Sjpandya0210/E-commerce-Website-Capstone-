@@ -1,4 +1,9 @@
-
+div .navbar123{
+    width: 94%;
+}
+.main{
+    display: flex;
+}
 .img{
     width: 300px;
     height: 250px;
@@ -23,6 +28,7 @@
 }
 .btnDetails:hover{
     background-color: #0056b3;
+    color: #7ee7aa;
 }
 .filters{
     display: flex;
@@ -33,6 +39,7 @@ flex:1;
 }
 .categoryBtn button {
     background-color: #7ee7aa;
+    color: #0056b3;
    padding: 3px;
    margin-left: 10px;
 }
@@ -45,6 +52,7 @@ flex:1;
 }
 .priceBtn button {
     background-color: #7ee7aa;
+    color: #0056b3;
     padding: 3px;
     margin-left: 10px;
 }
@@ -54,4 +62,34 @@ flex:1;
 }
 .priceBtn :active{
     background-color: #003268;
+}
+
+@media (max-width: 768px) {
+    div.navbar123 {
+        width: auto;
+    }
+
+    .main {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .img {
+        width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .btnDetails {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 15px; /* Increase bottom margin for better spacing */
+    }
+
+    .filters {
+        flex-direction: column; /* Stack filters vertically */
+    }
+
+    .categoryBtn button,
+    .priceBtn button {
+        width: 100%; /* Make filter buttons full width */
+        margin-bottom: 10px; /* Increase bottom margin for better spacing */
+    }
 }

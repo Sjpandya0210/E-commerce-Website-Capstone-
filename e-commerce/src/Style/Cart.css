@@ -31,6 +31,7 @@
   
   .btn2:hover {
     background-color: #04740a; 
+    color:rgb(9, 255, 0);
     transform: scale(1.1); /* Grow the size by 10% */
   }
 .cartUL{

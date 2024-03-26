@@ -1,9 +1,9 @@
 //api
 import { useParams } from "react-router-dom";
 import { useAccountQuery } from "../Redux/api";
+import '../Style/Account.css'
 
 function Account ({token, userId}) {
-    // let { id } = useParams();
     const {data, error, isLoading } = useAccountQuery({token, id: userId })
     console.log("This is data from Account", data)
     console.log("this is token from account", token)
@@ -18,7 +18,7 @@ function Account ({token, userId}) {
     return (
         <div>
         <h2>This is your Account</h2>
-        <ul>
+        <ul className="ul12">
         <li>Username: {data.username}</li>
         {data.email? <li>Email: {data.email}</li> : ""}
         <li>Phone Number: {data.phone}</li>
@@ -37,10 +37,6 @@ function Account ({token, userId}) {
 export default Account;
 
 
-//get all users
-//match the email, username, password
-//gives us id?
-//setUserId function 
 
 
 
@@ -56,10 +52,3 @@ export default Account;
 
 
 
-
-
-
-
-
-
-//
