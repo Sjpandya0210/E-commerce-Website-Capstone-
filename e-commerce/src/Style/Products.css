@@ -14,6 +14,7 @@ div .navbar123{
     color: rgb(3, 3, 3);
     font-size: 15px;
 }
+
 .btnDetails{
     display: inline-block;
     padding: 10px 20px;
@@ -63,7 +64,11 @@ flex:1;
 .priceBtn :active{
     background-color: #003268;
 }
-
+.categoryBtn input[type="checkbox"],
+.priceBtn input[type="checkbox"] {
+    border: 1px solid #000; 
+    padding: 5px; 
+}
 @media (max-width: 768px) {
     div.navbar123 {
         width: auto;
