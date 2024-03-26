@@ -85,7 +85,7 @@ function Cart({ token, userId, cartItems, setCartItems }) {
     <div className="cartDiv">
       <h2>Your Selected Items</h2>
       <button onClick={handleXbtn} className="btn1">
-        Back to Products
+        Back
       </button>
       <button onClick={handleCheckout} className="btn2">
         Checkout

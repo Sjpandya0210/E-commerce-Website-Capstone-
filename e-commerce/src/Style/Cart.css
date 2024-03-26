@@ -3,7 +3,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .btn1 {
-    background-color: #f44336; /* Red */
+    background-color: #4CAF50; /* Red */
     color: white;
     border: none;
     padding: 8px 16px;
@@ -14,7 +14,8 @@
   }
   
   .btn1:hover {
-    background-color: #820505; 
+    background-color: #d1f503; 
+    color:black;
     transform: scale(1.1);
   }
   
@@ -31,7 +32,7 @@
   
   .btn2:hover {
     background-color: #04740a; 
-    color:rgb(9, 255, 0);
+    color:black;
     transform: scale(1.1); /* Grow the size by 10% */
   }
 .cartUL{
