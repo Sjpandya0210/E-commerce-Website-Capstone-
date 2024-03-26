@@ -110,7 +110,7 @@ function Cart({ token, userId, cartItems, setCartItems }) {
                 />
                 Quantity: {item.quantity}, Price: ${item.price}, Total: $
                 {(item.price * item.quantity).toFixed(2)}
-                <button onClick={() => removeFromCart(item.productId)}>
+                <button onClick={() => removeFromCart(item.productId)} className="remove">
                   Remove from cart
                 </button>
               </li>

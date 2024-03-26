@@ -14,8 +14,8 @@
   }
   
   .btn1:hover {
-    background-color: #820505; /* Darker Red */
-    transform: scale(1.1); /* Grow the size by 10% */
+    background-color: #820505; 
+    transform: scale(1.1);
   }
   
   /* Button 2 */
@@ -58,6 +58,8 @@
   .cartUl li button {
     background-color: #9c160c; 
     color: white;
+    width: 200px;
+    height: 35px;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
